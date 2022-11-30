@@ -175,11 +175,11 @@ man chmod para activar permisos de la aplicacion
 
   r es de read, w es de write, x es de execute, - niguno
 
-							                  user, gruop, los demas
-								                u     g    all
+                               user, gruop, los demas
+			        u     g    all
  [-(archivo) o d(directorio)] [rwx] [rwx] [rwx]
 maxima combinacion en bnario:  111   111   111
-							                 421   421   421
+			       421   421   421
 en hexadecimal            chmod 7     7     7  (euna forma de activar los permisos con numeros)
 
 activar permisos con letras:
