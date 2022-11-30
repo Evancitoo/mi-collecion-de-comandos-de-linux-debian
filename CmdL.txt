@@ -1,0 +1,878 @@
+
+
+commands of linux parrotsec Os (basado en debian) ->
+(The terminal is letters mayus y minus key sensitive..!!)
+
+to whatch you parrot version>
+cat /etc/os-release
+cat /proc/version
+lsb_release -a
+
+-------------------------
+para logearse como administrador:
+sudo su
+
+para cambiar de contra senya:
+passwd
+
+para camabiar contrasenya root
+passwd root
+gha2023
+-------------------------
+
+el comando cat sirve para ver que hay dentro de un archivo desde la terminal.
+cuando escribes cat de nuevo una ves dentro de un archivo de leer tambien al parecer puedes editar desde la terminal(pero no me funciona asi)
+
+cuando no se ve opcione y queires salir pones control c. y te sales.
+
+tambien puede crear un archivo con cat con el siguiente comando
+cat > [noesunimagenEjemplo.jpg] (entra en espacion en blanco y luego se sale con control d) se me borrar los anterior.
+
+tambien puede ver con el comando: less (funciona como find con el signo de ?) o more (en porcentaje)
+--------------------------------------------
+para ver la capasidades del systema poner
+
+df -h
+
+----------------------------------------------
+para ver que tipo de archivo que no solo depende de la extencion si no que tambien puede detectar el contenido. poner el comando:
+file
+
+----------------------------------
+to update your parrot:
+
+sudo apt-get update
+sudo parrot-upgrade
+
+--predecadted----
+
+sudo apt-get upgrade
+sudo apt-get full-upgrade
+sudo apt-get dist-upgrade
+sudo apt-get update && sudo apt-get -y dist-upgrade --allow-downgrades
+
+---------------------------------
+to see if the fiele is the original with out hacker modifications.
+comprobacion sha256 / 512 / 384 etc
+
+// some hacker claim and show form to hack it
+MD5
+SHA-1
+SHA-2
+//bit more dificult
+SHA-256 — generates a digits of 32 bytes
+
+//not hackerd yet as 2022 known
+SHA-384 — generates a digits of 48 bytes
+SHA-512 — generates a digits of 64 bytes
+
+comandos:
+
+shasum -a 256 <<any_file>>
+
+ or
+
+sha256sum << any_file >>
+------------------------------------
+to see if the file file downloads not corrupted
+
+cksum << the _file.txt >>
+
+---------------------------------
+para permitir ver discos:
+
+sudo fdisk -l
+
+---------------------------
+(es para ver en el terminal donde se esta el terminal desde del systema de ficheros) es: Pwd (significa print working directory)
+
+------ para ver donde esta tu compilado g++ o gcc, make-------
+
+para ver donde se encuentra:
+which g++
+which gcc
+which make
+  o
+type gcc
+type g++
+type make
+
+para ver que version es.
+gcc --version
+g++ --version
+make --version
+
+para instarlarlo si no la tienes
+(en debian)
+$ sudo apt-get install build-essential
+$ sudo apt install build-essential
+(en centos os red hat)
+#yum groupinstall "Developent Tools"
+#yum group install "Development Tools
+
+-----------------
+es para ver si tu linux tiene el programa
+apt-cache search kazam
+apt-cache search [nombre-del-programa]
+
+--------------------------------------
+para ver que la dentro de una carpeta el comando es
+ls [OPTION]... [FILE]...
+ls --help (para ver todos sus opciones de comandos)
+
+
+------------------------------
+para editar como se ve la contra senya en el terminal:
+sudo visudo
+   o
+sudo nano /etc/sudoers
+
+para cambiar de paswords:
+sudo passwd
+
+-----------------------------
+para agregar nuevs repositorios
+sudo add-apt-repository ppa:[el repositorio nuevo]
+
+---------------------------------------
+comandos para intalar en linux
+
+sudo apt-get install <<los programas con un espacio>>
+sudo dpkg -i <<los programas con un espacio>>cat
+sudo apt-get build-dep <<se instalan las dependencias>>
+flatpak install flathub com.obsproject.Studio
+
+hay para descargarse el instalador alien que agarra rmp y tar.gz
+sudo apt-get install alien
+
+---------------------------
+para ejecutar los programas con terminacion [el programa].sh(es un script)
+pones: sh [nombre del fichero]
+
+comando en el terminal
+curl.cheat.sh
+	o      (solo funciona con internet es para saber aprender de todo en la terminal)
+curl cht.sh
+
+curl cht.sh/find/:list (en lista las opciones que hay para entrar)
+			grep
+			bash
+		   [aprender de comandos]
+
+curl cht.sh/:intro
+
+--------------------------------------------------------
+para ejecutar aarchivos.run
+sudo
+ [nombre-del-archivo].run   Resumen:(para los que terminan en .AppImage no se pone.run se aplica para correr el compilado de frente no se cambia el nombre si no desaparece y funciona con el script de waterfox pero despues de control y control x se puede ver a la aplicacion)
+	o
+sudo ./[nombre-del-archivo].run
+
+/opt/VSCodium-linux-x64-1.68.1/./codium (para ejecutar desde la terminal)
+
+----------------------------------------
+man chmod para activar permisos de la aplicacion
+
+  r es de read, w es de write, x es de execute, - niguno
+
+							                  user, gruop, los demas
+								                u     g    all
+ [-(archivo) o d(directorio)] [rwx] [rwx] [rwx]
+maxima combinacion en bnario:  111   111   111
+							                 421   421   421
+en hexadecimal            chmod 7     7     7  (euna forma de activar los permisos con numeros)
+
+activar permisos con letras:
+chmod +x [poder ejecutar una aplicacion]
+	  + es activar
+	  - es para des activar
+chmod [opcion] [archivo] ejmplo: chmod u+rwx [archivo]
+				g-wx
+			go--x
+				a+rw
+para activar todo resumido en letras
+chmod a+rwx [archivo]
+----------------------------------------------------------------------
+para hacer que un usuario sea duenyo de los permisos de x archivos
+
+sudo chown [comando opciones] [el usuario] [el archivo]
+								                root         test.sh
+				         chgrp          luis         test.sh
+
+
+
+------------------------------------------------------------------
+comandos para desinstalar en linux
+
+(al parecer primero tiene que entrar al progrma que equiere desintalar con este comando y tiene que haber un archivo Uninstall [el_programa] es manual hay completacon con tab) ejemplo
+./Uninstall\ JDowloader
+
+(estos otros usan un desIntalador de linux nativo al parecer)
+sudo apt-get remove --purge <<el programa>>
+sudo apt-get -f --purge remove <<el programa>>
+----------------
+para desinstalar paquetes de flatpak no funciona lo de arriba se usa flatpak comandos es:
+
+flatpak uninstall <<el programa>> //luego facil que salen opciones para elgir si hay nombres parecidos para escoger
+
+
+sudo rm -r <<los programas que se quieren borrar
+rm -rf remover un elemento recursivamente
+rm * significa remover todo los archivos de donde esta.
+
+para remover un direactorio:
+sudo rmdir
+para crear un direactorio:
+sudo mkdir
+
+---------------------------------
+comandos para comprimir y descomprimir linux:
+
+(comprimir)
+bzip2 firefox-103.0b3.tar.bz2
+gzip "argumento.docx.gz"
+tar -cvf "presentacion".tar "presentacion"
+zip "Archivo".zip "Archivo/"
+(descomprimir)
+bzip2 -d "firefox-103.0b3.tar.bz2"
+gzip -d "argumento.docx.gz"
+tar -xvf "Presentacion.tar"
+unzip "Archivo.zip"
+
+-----------------------------------------------
+creating sudo nano on share aplications:
+se crea en /usr/share/applications => sudo nano "la Applicacion".desktop
+
+[Desktop Entry]
+Name=Waterfox
+GenericName=Waterfox
+Exec=/opt/waterfox/waterfox  (audacity-linux-3.1.3-x86_64.AppImage)
+Terminal=false
+Icon=/opt/waterfox/icons/waterfox.png
+Type=Application
+Categories=Application;Network;X-Developer;
+Comment=Waterfox Web Browser.
+
+[Desktop Entry]
+Name=Firefox
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+X-GNOME-FullName=Firefox
+Exec=/opt/firefox_dv/firefox %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/opt/firefox_dv/icons/firefox_dv.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/v>
+StartupWMClass=firefox
+StartupNotify=true
+
+regresar a la normalidad la configuracion de systema de firefox por defecto de parrot.
+[Desktop Entry]
+Name=Firefox
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+X-GNOME-FullName=Firefox
+Exec=firefox-esr %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=firefox-esr
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/v>
+StartupWMClass=firefox
+StartupNotify=true
+
+
+-------------------------------------------
+
+para ver tu discos duros y memorias.
+
+sudo fdisk -l
+sudo fdisk -l | grep sdb
+
+-----------------------------------------
+
+para configurar comportamiento de super usuario sudo>
+
+sudo visudo
+
+------------------------------------
+
+para ver cuales usuarios existe en tu linux
+
+sudo users
+
+-------para usar youtube-dl (descargar videos de youtube)-------
+
+para saber mas
+youtube-dl -help
+
+para crear una carpeta primero
+mkdir [nombre de la carpeta]
+
+para descargar un video de youtube
+youtube-dl [la url del video youtube]
+
+para descargar la playlist completa
+youtube-dl --yes-playlist [la url]
+
+para descargar solo en algun formato
+youtubep-dl -x https://www.youtube.com/watch?v=m2X52FW8Ws0 --audio-format mp3
+(ojo pueden varios ser otros formatos en vez de mp3,ogg,wav)
+
+-----como arreglar internet lento y que no funciona sin anonsurf(bug)-------
+
+1) sudo apt install resolvconf
+2) disable Anonsurf (gui or sudo stop anonsurf)
+3) sudo resolvconf -u
+4) reboot your machine (si no funcion exploit bug profit)
+
+--------- comprobacion algoritmo de integridad de programas en linux----
+
+ (videos en youtube[ejemplo=https://www.youtube.com/watch?v=eNMpbJAjppc] dice
+ que no es seguro: md5 sha2 sha1 y sha256)
+
+ para el algoritmo sha256
+ shasum -a 256 [el Programa]
+---------------intrucione para instalar quemu ------------------
+
+1.(para ver que virtualisacion da con tu procesador) (intel e: VT-x o amd: amd-V)
+LC_ALL=c lscpu | grep Virtualization
+
+2.(es para ver cuantos hilos de ejecucion el procesador hace si no sale el numero cero significa que ya esta activado la virtualisacion en el bios de lo contrario buscar activar en el bio con las letra en caso de amd:amd-V intel:VT-x)
+egrep -c '(vmx|svm)' /proc/cpuinfo
+
+3.(actualisar repositorio y instalar quemu y kvm etc)
+sudo apt update
+sudo apt install qemu quemu-kvm virt-manager bridge-utils
+sudo reboot (se recominenda rbootear tu pc)
+
+no funciono los mismo pasos en ubuntu  cambiar a otra para parrot
+
+-----install QEMU and KVM on Parrot OS -->
+https://wiki.debian.org/KVM
+
+nano /etc/sysctl.conf
+sudo sysctl -p
+
+egrep -c '(vmx|svm)' /proc/cpuinfo
+sudo kvm-ok
+sudo apt install cpu-checker
+sudo kvm-ok
+
+sudo apt-get update
+apt-get install qemu-system libvirt-clients libvirt-daemon-system virt-manager
+
+sudo ln -s /etc/apparmor.d/libvirt/TEMPLATE.qemu /etc/apparmor.d/libvirt/TEMPLATE.kvm
+
+sudo addgroup [USER] libvirt
+sudo addgroup [USER] kvm
+
+sudo systemctl status libvirtd
+sudo systemctl enable --now libvirtd
+lsmod | grep -i kvm
+sudo systemctl restart libvirtd
+virt-manager
+
+-----------ver los comandos de tu kvm(virtual machine) -----
+puede manipular el virtual machine desde la terminal para ver sus comandos pone:
+virsh -h
+
+-------usar git desde linux Terminal ----------
+
+(para clonar repositorios de github)
+git clone [va el url de git hub htpps]
+
+(si lo bajado tiene dependencias como: libreria o frameworks, etc en local)
+npm install
+
+(adapta la libreria al software codigo)
+npm run start
+
+------------------------------------------
+comandos principales basicos de git
+
+1_>git init [nombre del proyecto] (esto crea un carpena inicial que git lo vigila)
+2_>cd [entrar-al-projecto]
+ a)crea tu codigo dentro
+3_>git add [tu proyecto ] (se escribe con la terminal del tipo de archivo. alli se ponen los que se postulan para hacer cambios)
+4_>git commit -m "aqui dejas un mensaje recordatorio del tema o razon u motivo del cambio" (el comando realisa la modificacion o mejoras o completado del codigo al programa official)
+
+-------------------------------------------
+para instalar wine en linux (software para correr progrmas de windows en linux)
+
+https://wiki.winehq.org/Debian (hay un problema con wine varias personas no pueden intalarlo en mi caso con parrotsec Os) fuente=> https://www.youtube.com/results?search_query=install+wine+in+parrot+os+&sp=EgIIBQ%253D%253D
+
+--mensaje de error en la terminal:-->>
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ winehq-devel : Depends: wine-devel (= 7.10~bullseye-1)
+E: Unable to correct problems, you have held broken packages.
+---fin del mensaje----->>>
+
+1)sudo apt update
+2)lsb_release -cs
+3)sudo dpkg --add-architecture i386
+4)wget -nc https://dl.winehq.org/wine-builds/winehq.key
+5)sudo mv winehq.key /usr/share/keyrings/winehq-archive.key (comando mv es para mover archivos de linux y solo funciona con sudo)
+6)wget -nc https://dl.winehq.org/wine-builds/debian/dists/bullseye/winehq-bullseye.sources
+7)sudo mv winehq-bullseye.sources /etc/apt/sources.list.d/
+8)sudo apt install --install-recommends winehq-devel\
+
+el problema no esta resuelto todavia u_u..!!
+-----------------------------------------------------------
+to install amberols :
+On a vanilla installation of Ubuntu, you’ll need to install flatpak:
+
+$ sudo apt install flatpak
+
+If you’ve not used Flatpak before, you’ll
+$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+We installed Amerbol with the command:
+
+$ flatpak install flathub io.bassi.Amberol
+
+As the software is published under an open source license you have full access to the source code. If you’ve got the time, you may wish to compile the source code.
+
+-----------------------------------------------
+intalar antyvirus para linux clamav
+
+sudo apt install clamav clamav-daemon (no funciona con parrot no instala)
+sudo apt-get install clamtk (esta es la version que funciona si instala)
+clamscan --version
+clamscan -h
+clamscan [options] [file to scan]
+
+-----------------------------------------------
+configuracion especial de chromiun en seccion donde va la url eso nosale asi nada mas en opciones.
+chrome://flags/#extension-mime-request-handling
+
+donde se aloja las extenciones soltandolas sin cuenta de google.
+chrome://extensions/
+
+-------------------------------------------------
+para hacer update en codium no funciona el repositorio por defecto de de parrot os sino hay que poner gpg key y repositorio de debian / ubuntu
+
+https://vscodium.com/
+
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+	| gpg --dearmor \
+	| sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+
+
+echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
+	| sudo tee /etc/apt/sources.list.d/vscodium.list
+
+
+sudo apt update && sudo apt install codium
+
+---------------------------------------------------------
+para limpiar de metadoatos usar el progrma exiftool que solo funciona  por terminal es un poco diferente:
+
+ver que metadatos contiene:
+exiftool [file]
+
+crear un copia con otros metadatos borrados solo quedan lo basico generico:
+exiftool -all= [file]
+
+sobre escribir quitando el meta dato del mismo archivo imagen etc.
+exiftool -all= overwrite_original [file]
+
+exif --version
+man exif   or   man exiftool  <-- manual.
+
+---------------------------------------------------------
+el comando: man [archivo]  es para ver el manual del programa
+
+---------------------------------------------------------
+para saber por el teriminal donde se encuentra alojado cualquier programa o archivo se usa:
+
+whereis [el programa]
+  o
+which [el programa]
+
+el comando find busca dentro de la jerarquias
+
+find [archivo]
+
+---------------------------------------------------------
+el comando: ls es para mostrar que elementos hay en el espacio para acceder
+ls [opciones de como mostrar]
+
+El comando cd significa change directory se pone:
+cd [donde quieres ir]
+si pones: cd .. (se retrocede al directorio anterior)
+	y
+si pones: cd =o= cd~ solo se va al directorio por defecto del usuario
+
+y si pones: cd (y luego aplstas 2 vece tabulado aparecen todo los directorios que puedes entrar) tabulado completa los iniciales de los directorios que hay para cualquier comando.
+
+el comando mv mueve los directorios o archivos programas de lugar hay lugares que pide permiso root.
+Se escribe de la siguiente manera:
+mv [el elemento seleccionado] [el lugar donde lo quieres mover]
+
+También funciona para cambiar de nombre a los elementos el mismo formato anterior.
+
+y el comando: cp (significa copy para copiar el archivo etc)
+
+----------------------------------------------
+para ver tu ip desde la terminal pones:
+
+ip addr show
+	o
+ifconfig (el primer ip es la asignada a tu systema operativo pc)
+
+y para ver el ip de cualquier pagina web es:
+nslookup [la web]
+ o
+ping [la web]
+
+3 formas de autoreferencia del ip privado
+localhost = 127.0.0.1 = 192.168.0.6 (se activa cuando tu pc hace de servidor)
+
+----------------------------------------------
+el comando para ver los procesos en enjecucion de tu pc desde la terminal es:
+top o htop
+
+-----------------------------
+comando para preguntar que hace un comando es:
+
+whatis [el comando o metodo funcion u operador]
+
+y para ver el manual de como usar el comando es:
+
+man [el comando]
+
+havece hay el comando y poner la opcion --help para ver las opciones.
+
+------------------------------------------------
+para ver el historial de comandos que has usado:
+history
+
+para ver cuanto memoria libre de que timpo me queda:
+free
+
+-------------------------------------------------------------
+puede usar el comando: sudo!! (para no repetir escribir todo lo anterior)
+simillar usar tab es auto completado de lo que hay en el lugar.
+
+------------------------------------------------------
+para crear un archivo poner el comando:
+touch [nombre del archivo con teminacion.txt u otros]
+
+y para crear un directorio:
+mkdir [nombre del direactorio] (mkdir significa make direactory)
+
+para crear un link de acceso direacto:
+ln -s ~[/example/ubucacion] ~[/ubicacion/etc]
+
+nano [el archivo] es el editor de archivos por defecto del terminal tambien crea. (en nano precionar control w es para busca el fin de la palabra o letra se que da guadada para otravez podefecto a menos que la cambies)
+
+man vim o man nvim ( Escape es para salir al modo visual o externo(:q para salir del vim :w es para escribir crear un archivo o guardar :wq ambos y para salir sin guardar es:q! y para moverse usar flechas o {h,j,k,l}) entrar a modo editor es i=a=s( si aplasta shift a aparecera al ultimo de lo escrito))
+vi [option] [file]
+nvim [option] [file]
+
+
+configurar en places:
+
+in your home folder, inside .config theres a file called user-dirs.dirs, just edit that file to your liking. Heres a copy of mine
+
+XDG_DESKTOP_DIR="$HOME/Desktop"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_TEMPLATES_DIR="$HOME/Templates"
+XDG_PUBLICSHARE_DIR="$HOME/Public"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_VIDEOS_DIR="$HOME/Videos"
+
+
+------------------------------------------------------------------
+aprender a ussar tmux terminal multiple execution
+
+pones << tmux >> y se crea comensando con 0 por defecto lugo para salir sin que se te borres tiene que poner << tmux detach >> el siguiente tmux una ves gravado sera 1 luego 2 y asi va si pones << tmux exit >> o control d se sale y se elmina tambien el tmux. tambien hay << tmux atach >>
+
+para ver cuantas sessiones tmux ls
+para crear un tmux con nombre particular es: << tmux new -s [el nombre] >>
+
+para entrar al ultimo temux que has usado es: << tmux a >>
+y para elegir cual session de tmux entrar es: << tmux a -t [la sesion]>>
+
+para eliminar todas las seciones tmux es: << tmux kill-session >>
+para elegir eliminar un session en concreto es: <<tmux kill-session -t [la sesion elegida] >>
+All the tmux processes (clients and server) are terminated as shown below:
+$ << pkill -f tmux >>
+In case you want to keep the session you are in and kill all the other sessions, run the command:
+$<< tmux kill-session -a >>
+simillar en el caso del servidor
+<< tmux kill-server >>
+<< tmux kill-server -t [name] >>
+<< tmux kill-window >>
+<< tmux kill-window -t [name] >>
+
+When you create a window in tmux, it will be named ‘zsh’, or ‘bash’, or whatever your shell is. I think it’s important that each tmux tab have an appropriate name. A tab running server should be called ‘server’; a tab running sidekiq should be called ‘sidekiq’.
+
+You can rename your windows a bunch of ways. For the window you are in:
+
+$ tmux rename-window newname
+None
+For another window in your session:
+
+$ tmux rename-window -t otherwindow newname
+None
+Using the tmux bar:
+
+prefix + rename-window newname
+None
+And my favorite, the tmux bar with a keyboard shortcut:
+
+prefix + , newname
+
+== para controlar los shortcut de tmux! ==
+
+debe de poner control b (soltarlo) y el otro comando de activacion cuando el control b se activa en el panel no puedes esribir por un rato ver en << man temux >> se encuentran los shorcaut son muchos para recordar
+
+control b y luego % crea una raya divicion vertical de panel a 2
+control b y luego " crea un raya de divicion horisontal de pane a 2
+
+moverse entre los panel con flechas control b y flecha
+
+moverse con ennumeracion control b suelta luego q luego poner el numero ante que desaparescan de los numero de opiones que pone en la pantalla
+
+para navegarcion general es control b y luego s.
+
+cuando pone control b y luego sin soltar apastas rapidamente las flechas cambias las dimencione de los paneles
+
+control b y luego c y flecha-> se crea nueva ventana bash
+
+control b y luego shift ; = : (es para activar comando para la ventana)
+
+
+-----------------------------------------------------------------
+para ver la direaccion ip de las direacciones web nobres dns
+
+nslookup [la direcion web dns]
+
+para ver cuantas lineas tiene un archivo de texto es:
+wc -l
+
+-----------------------------------------------------------------
+para reconfigurar powerlvl10k
+
+p10k configure
+
+https://github.com/romkatv/powerlevel10k
+
+para cambiar se de bash a zsh y viceversa simplemente poner <<bash o zsh>>.
+
+--------------------------------------------------------------------------------
+para abrir un imagen en linux
+
+xdg-open [el archivo de imagen]  (coge solo 1 programa el predeterminado)
+
+run-mailcap [archivo] (coge cualquier progrma que puede hacerlo no solo de imagen tambien de offices tipo read)
+
+-------------------------------------------------------------------------
+para activar la read de tu vmm
+
+First, confirm that the default network is indeed inactive:
+sudo virsh net-list --all
+
+If so, start the default network:
+sudo virsh net-start default
+
+----------------------------------------------------------------
+learn infinite customisation with conky
+
+configuracion para que tu conky sea transparente
+alignment = 'top_rigth',
+own_window_argb_visual = true,
+own_window_argb_value = 50,
+double_buffer = true,
+gap_x = 1400, (para mover el conoky en cordenadas)
+pag_y = 500,
+
+para configurar el conky inicial:
+sudo nano /etc/conky/conky.conf
+
+find: Startup Applications Preferences
+push the  +add button
+name: conky
+command: /usr/bin/conky
+
+para inciar uno conkys
+bash /etc/conky/startup.sh (No iniciar se te borra todo home ...!!!)
+para eliminar todo los conkys:
+sudo killall conky
+
+
+-----------------------------------------------------------------------------
+ learn firejail, app armor etc.
+
+to monitor firejail sandbox:
+firejail --top
+
+to open any program as secure config fire jail
+firejail --seccomp --nonewprivs --private --private-tmp [el programa]
+														  firefox_ virsh_
+
+
+sudo firecfg actival firejail a 1000 aplicaciones etc por defecto.
+
+------------------------------------------------------------
+
+al aplastar control c hace que te salgas de un bucle infinito
+---------------------------------------------------------------------
+mod4 significa el teclado windows
+
+--------------------------------------------------------
+para prender luz del teclado con comando del teriminal
+es: xset led 3
+----------------------------------------
+
+shourcunt para tranformar en comentario en sublime text es muy util practico que ahorra tiempo: (en sublime text no es toyu seguro si fuanciona igual para otros)
+
+control + / : para comentarion en singular
+
+control + shift + /: paracomentarios largos
+
+ojo recordar que solo funciona  la / de signo ? con shift dentro de la sona de letra no funciona en la sona de nuemeros
+--------------------------------------------------------------------------
+
+para el antivirus clam-tk
+
+para intalar el antivirus:
+sudo apt install clamav-freshclam
+
+para actualizar el antivirus
+sudo freshclam
+
+para escanear manualmente
+clamscan -[parámetros] [ruta de carpeta]
+
+el  -r es para que clam haga un analisis recursivo
+sudo clamscan -r /home
+
+escaneo desde la raiz completa
+sudo clamscan -r /
+
+con el -i muestra en pantalla los infectados
+sudo clamscan -r -i /home
+
+También tienes la posibilidad de guardar un reporte del análisis en un archivo aparte que se creará en tu directorio personal
+sudo clamscan -r --bell /home
+
+También tienes la posibilidad de guardar un reporte del análisis en un archivo aparte que se creará en tu directorio personal.
+
+sudo clamscan -r /home -l archivo.txt
+
+para ver el manual de cada comando:
+man [el comando]
+ejemplo
+man clamtk
+--------------------------------------------------------------
+para recargar el terminal con los recursos en ves de cerrar y abrir de nuveo la terminal:
+
+source << el archivo que va a indexarse con el terminal >>
+
+source ~/.zshrc
+  o
+. ~/.zshrc
+
+por alguna razon no se porque el syntax-hihlighting.plugin no lo reconoce cada vez que entra de nuevo a a modo root tiene que pone lo siguiente para que recien lo reconosca:
+
+source ~/path/to/fsh/fast-syntax-highlighting.plugin.zsh
+
++info en: https://github.com/zdharma-continuum/fast-syntax-highlighting#installation
+
+igual sucede con rust en el modo root. pero el syntax-highlighting.plugin no se borra en el terminal normal pero el rust si en ambos. (tal vez sea un forma de defensa amnesica de parrot no c.)
+--------------------------------------------
+
+instalacion de rust en parrotsec-Os
+no funciono solo siguiendo los pasos normales de la web si no:
+
+1) sudo apt-get install curl -y
+2) curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+3) source $HOME/.cargo/env (cada vez que cierras y abres el terminal se borra el path en parrotsec os asi que tienes que poner lo de nuevo pero no sucede cuando estas en root activado)
+4) source ~/.profile
+5) sudo apt-get install build-essential -y
+
+comandos para rustling (primero tienes que desde la carpeta home entrar rustlings luego poner el siguiente comando)
+https://github.com/rust-lang/rustlings
+
+el comando es: rustling watch //este comando continuarar hasta donde te quedastes una serie de ejercicios para aprender los conceptos de rust
+
+rustlings verify //este commando verificara si completastes los ejecicion en el orden recomendado
+
+rustlings run myExercise1 //este commando para correr el ejercicio elegido en particular
+
+rustlings run next // este commando es para correr al siguiente ejercicio
+
+
+
+comprobar si funciono vel al version intalada
+
+6) rustc --version  o  rustc -V
+7) cargo -V
+8) rustup docs --book
+
+para compital algo poner: rustc <<prorama que queires compilar>>
+para correr el programa : .\src\main.rs or ./src/main
+
+cargo es el administrador del systema de paquetes arquitectura de rust
+
+cargo new <<nombre del projeto>> // para crear un projecto con main
+cargo
+cargo new --lib <<combre del progrma>> //para crear un libreria de binarios herramientas re utilisables para otros mains, ally no va le fn main() {} los libs sirve a los main donde se orquesta los programas que se ejecutan para el usuario.
+
+cargo check // para ver si el projecto
+cargo build // solo para compilar tu projecto siguiendo la arquitectura de cargo
+cargo build --release // compilar otro espacio para el modo prueba (generalmente lo que falta debugear)
+cargo run // para compilar y luego correr tu projecto
+
+
+// this especial feature doesnt apears on cargo --help
+cargo clippy // this let you personaliza the warning and add lints of commos mistakes. Run in the default package(s).
+cargo clippy --release // Run in release mode
+cargo clippy --workspace // Checks the packages in the monorepo
+cargo build --package myPkgName // An specific page
+cargo fmt // this commands format you code..!!
+cargo test // para probar y sacar datos de las librerias de funciones
+
+--------------------------------------------------------------
+
+
+
+---(continua aprendiendo algo nuevo cada dia =P..!!)---->
+
+
+https://www.youtube.com/playlist?list=PL55pR12vPhpaClPH2cOck4AGsi6w6aiuV
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
